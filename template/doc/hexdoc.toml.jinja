@@ -17,7 +17,7 @@ resource_dirs = [  # top takes priority
     { modid="minecraft" },
     { modid="hexdoc" },
 ]
-export_dir = "{{ package_export_root }}/generated"
+export_dir = "{{ package_export_root.removeprefix('doc/') }}/generated"
 
 [template]
 icon = "icon.png"
