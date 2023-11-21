@@ -4,7 +4,7 @@ name: Build the web book
 on:
   push:
     branches:
-      - {% endraw %}{{ default_branch }}{%- raw %}
+      - {% endraw %}{{ main_branch }}{%- raw %}
     tags: "v*"
   workflow_dispatch:
     inputs:

@@ -1,7 +1,7 @@
 modid = "{{ modid }}"
 book = "{{ book_id }}"
 default_lang = "en_us"
-default_branch = "{{ default_branch }}"
+main_branch = "{{ main_branch }}"
 
 resource_dirs = [  # top takes priority
     "resources",
@@ -55,4 +55,4 @@ package = "{src}/main/{{ java_lang.src }}/{{ java_package }}/fabric"
 [_forge]
 src = "../forge/src"
 package = "{src}/main/{{ java_lang.src }}/{{ java_package }}/forge"
-{%- endif -%}
+{%- endif %}

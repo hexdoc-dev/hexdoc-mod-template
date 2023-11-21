@@ -21,6 +21,7 @@ class {{ hexdoc_plugin_classname }}(ModPluginImpl):
     def hexdoc_mod_plugin(branch: str) -> ModPlugin:
         return {{ hexdoc_mod_plugin_classname }}(branch=branch)
 
+
 class {{ hexdoc_mod_plugin_classname }}(ModPluginWithBook):
     @property
     @override
