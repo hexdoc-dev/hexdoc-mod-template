@@ -26,7 +26,6 @@ on:
 
 env:
   PYPI_PACKAGE: {% endraw %}{{ package_name }}{%- raw %}
-  PYTHON_VERSION: '3.11'
 
 permissions:
   contents: read
@@ -40,7 +39,7 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
-      python-version: ${{ env.PYTHON_VERSION }}
+      python-version: '3.11'
       release: |-
         ${{
           github.event_name == 'workflow_dispatch' && inputs.release
