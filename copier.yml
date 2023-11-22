@@ -1,5 +1,8 @@
 # Copier settings (not prompted)
 _subdirectory: template
+_skip_if_exists:
+  - ".env"
+  - "icon.png"
 _exclude:
   # copier-template-tester
   - ".ctt"
