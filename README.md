@@ -40,7 +40,7 @@ PyPI is the main Python package repository (like Node's NPM). hexdoc plugins are
 * Go to your GitHub repo settings > Environments, and create an environment called `pypi`.
 * Try releasing the plugin to PyPI (push a tag, push a commit starting with `[Release]`, or manually run the hexdoc workflow from the Actions tab).
 
-The default version number for your plugin is `1.0.dev0`. You can bump this by manually editing `doc/src/hexdoc_yourmodid/__version__.py`, or by manually running the hexdoc workflow and typing `major`, `minor`, `patch`, `dev`, and/or `release` in the "increment version" field.
+The default version number for your plugin is `1.0.dev0`. You can bump this by editing `doc/src/hexdoc_yourmodid/__version__.py`, or by manually running the hexdoc workflow and typing `major`, `minor`, `patch`, `dev`, and/or `release` in the "increment version" field.
 
 ## Migrating from Cookiecutter
 
