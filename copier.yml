@@ -1,10 +1,14 @@
 # Copier settings (not prompted)
+
 _subdirectory: template
+_answers_file: .copier-answers.hexdoc-hexcasting.yml
+
 _skip_if_exists:
   - ".env"
   - "icon.png"
+
 _exclude:
-  # copier-template-tester
+  # for copier-template-tester
   - ".ctt"
   - "ctt.toml"
   # Defaults: https://copier.readthedocs.io/en/latest/configuring/#exclude
