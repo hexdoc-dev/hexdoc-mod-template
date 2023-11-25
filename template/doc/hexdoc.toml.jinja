@@ -35,11 +35,13 @@ show_landing_text = false
 [extra.hexcasting]
 # regexes for parsing pattern registry files - try running copier update and picking a different regex if your patterns aren't loading
 # NOTE: "!Raw" means "don't apply variable interpolation to this value"
-_pattern_regex = { "!Raw"='{{ pattern_regex }}' }
+_pattern_regex = { "!Raw"='{{ pattern_regex.regex }}' }
+_per_world_value = "{{ pattern_regex.per_world_value }}"
 
 [[extra.hexcasting.pattern_stubs]]
 path = "{^^^_common.package}/{{ pattern_registry }}"
 regex = "{^_pattern_regex}"
+per_world_value = "{^_per_world_value}"
 
 # platforms
 

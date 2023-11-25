@@ -70,16 +70,24 @@ java_package: "com/example/{{ modid }}"
 pattern_registry: "registry/{{ modid|capitalize }}PatternRegistry.{{ java_lang.ext }}"
 
 pattern_regex:
-  type: str
+  type: yaml
   choices:
     Hex Casting (1.20):
-      value: &pattern_regex_default 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*(?:new )?(?:ActionRegistryEntry|OperationAction)\(\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
+      value: &pattern_regex_default
+        regex: 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*(?:new )?(?:ActionRegistryEntry|OperationAction)\(\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
+        per_world_value: "true"
     Hex Casting (1.19):
-      value: 'HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\)[^;]+?(?:makeConstantOp|Op\w+|Widget\.\w+)(?:[^;]*(?P<is_per_world>true)\);)?'
+      value:
+        regex: 'HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\)[^;]+?(?:makeConstantOp|Op\w+|Widget\.\w+)(?:[^;]*(?P<is_per_world>true)\);)?'
+        per_world_value: "true"
     Hexal (1.20):
-      value: 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
+      value:
+        regex: 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
+        per_world_value: "true"
     Hexal (1.19):
-      value: (?s-m:HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\),[^,]+?(?:makeConstantOp|Op\w+).*?(?P<is_per_world>\btrue)?\)(?:[^\)]+?\bval\b|(?:(?!\bval\b)(?:.))+$))
+      value:
+        regex: (?s-m:HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\),[^,]+?(?:makeConstantOp|Op\w+).*?(?P<is_per_world>\btrue)?\)(?:[^\)]+?\bval\b|(?:(?!\bval\b)(?:.))+$))
+        per_world_value: "true"
   default: *pattern_regex_default
 
 # GitHub
