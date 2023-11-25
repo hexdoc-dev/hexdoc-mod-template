@@ -6,7 +6,7 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
 ### Copying the template
 
 * Install Copier: `pip install pipx && pipx install copier`
-* In your repo, copy the template: `copier copy gh:object-Object/hexdoc-hexcasting-template . --overwrite`
+* In your repo, copy the template: `copier copy gh:hexdoc-dev/hexdoc-hexcasting-template . --overwrite`
 * Use your editor's Git diff tool to review any files overwritten by the template (eg. `.gitignore`).
   * All of the files in the template are there for good reasons, but you might want to merge some of your existing content into them.
 * Commit the plugin.
@@ -45,7 +45,7 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 ## Migrating from Cookiecutter
 
 * Install Copier: `pip install pipx && pipx install copier`
-* In your repo, copy the initial version of the template: `copier copy gh:object-Object/hexdoc-hexcasting-template . --vcs-ref v0.0.1 --overwrite`
+* In your repo, copy the initial version of the template: `copier copy gh:hexdoc-dev/hexdoc-hexcasting-template . --vcs-ref v0.0.1 --overwrite`
 * Use your editor's Git diff tool to reapply any changes you've made since baking the Cookiecutter template, then commit your changes.
 * Update to the latest template: `copier update --skip-answered`
 * Again, use the diff to fix any issues and/or merge conflicts caused by the update, then commit.
