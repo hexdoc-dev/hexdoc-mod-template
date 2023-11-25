@@ -6,12 +6,12 @@ default_branch = "{{ default_branch }}"
 resource_dirs = [  # top takes priority
     "resources",
     "{_common.src}/main/resources",
-    "{_common.src}/generated/resources",
+    { path="{^_common.src}/generated/resources", required=false },
     {%- if multiloader %}
     "{_fabric.src}/main/resources",
-    "{_fabric.src}/generated/resources",
+    { path="{^_fabric.src}/generated/resources", required=false },
     "{_forge.src}/main/resources",
-    "{_forge.src}/generated/resources",
+    { path="{^_forge.src}/generated/resources", required=false },
     {%- endif %}
     { modid="hexcasting" },
     { modid="minecraft" },
