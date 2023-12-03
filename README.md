@@ -30,7 +30,7 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
 
 ### Setting up a PyPI account (optional, but highly recommended)
 
-PyPI is the main Python package repository (like Node's NPM). hexdoc plugins are set up by default to (mostly) automatically publish versions to PyPI when you release a new version of your mod, so that other hexdoc plugins can use content from them. [hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two examples of hexdoc plugins that your web book already depends on.
+PyPI is the main Python package repository (like Node's NPM). hexdoc plugins are set up by default to (mostly) automatically publish versions to PyPI when you release a new version of your mod.
 
 * [Create a PyPI account](https://pypi.org/account/register/).
 * Follow [these steps](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/) to configure a pending publisher for your plugin.
@@ -51,3 +51,10 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 * Again, use the diff to fix any issues and/or merge conflicts caused by the update, then commit.
   * NOTE: Since the Cookiecutter template was last updated, the default props file was renamed from `properties.toml` to `hexdoc.toml`. Copier doesn't seem to pick up on this, so make sure to carefully compare these files.
 * Follow the setup instructions in the README, then run `hexdoc serve` and fix any issues that show up.
+
+## FAQ
+
+### Why should I publish my plugin to PyPI?
+
+* It allows other hexdoc plugins to use content from your mod ([hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two examples of hexdoc plugins that your web book already depends on).
+* Publishing to PyPI is **mandatory** if you want your mod to be supported by [HexBug](https://github.com/object-Object/HexBug), [hexdoc-lsp](https://github.com/hexdoc-dev/hexdoc-lsp), and/or [vscode-hex-casting](https://github.com/object-Object/vscode-hex-casting).
