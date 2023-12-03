@@ -17,7 +17,7 @@ on:
         type: choice
         options:
           - none
-          - PyPI (release)
+          - PyPI
           # - TestPyPI
       segment:
         description: Version segment to bump with Hatch
@@ -53,7 +53,7 @@ jobs:
     needs: [hexdoc]
     if: |-
       needs.hexdoc.outputs.release == 'true' &&
-      (github.event_name != 'workflow_dispatch' || inputs.publish == 'PyPI (release)')
+      (github.event_name != 'workflow_dispatch' || inputs.publish == 'PyPI')
 
     environment:
       name: pypi
