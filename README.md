@@ -46,7 +46,8 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 
 ### Next steps
 
-* Read through the files added by the template. If you use VSCode, consider installing the recommended extensions for auto-formatting, linting, and type checking.
+* Read through the files added by the template - make sure you know what you just added to your repo!
+* If you use VSCode, consider installing the recommended extensions for auto-formatting, linting, and type checking.
 * For hexdoc examples, take a look at these projects:
   * [hexdoc-hexcasting](https://github.com/object-Object/HexMod)
   * [hexdoc-hexgloop](https://github.com/SamsTheNerd/HexGloop).
