@@ -9,8 +9,10 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
 * In your repo, copy the template: `copier copy gh:hexdoc-dev/hexdoc-hexcasting-template . --overwrite`
 * Use your editor's Git diff tool to review any files overwritten by the template (eg. `.gitignore`).
   * All of the files in the template are there for good reasons, but you might want to merge some of your existing content into them.
+  * Make sure `.vscode` is not in your `.gitignore`.
 * Commit the plugin.
 * Follow the setup steps in `doc/README.md`, then try running the commands. Fix any errors you find.
+  * Make sure to double-check the file paths and pattern regex in `doc/hexdoc.toml`.
 
 ### Setting up Pages
 
@@ -41,6 +43,14 @@ PyPI is the main Python package repository (like Node's NPM). hexdoc plugins are
 * Try releasing the plugin to PyPI (push a tag, push a commit starting with `[Release]`, or manually run the hexdoc workflow from the Actions tab).
 
 The default version number for your plugin is `1.0.dev0`. You can bump this by editing `doc/src/hexdoc_yourmodid/__version__.py`, or by manually running the hexdoc workflow and typing `major`, `minor`, `patch`, `dev`, and/or `release` in the "increment version" field.
+
+### Next steps
+
+* Read through the files added by the template. If you use VSCode, consider installing the recommended extensions for auto-formatting, linting, and type checking.
+* For hexdoc examples, take a look at these projects:
+  * [hexdoc-hexcasting](https://github.com/object-Object/HexMod)
+  * [hexdoc-hexgloop](https://github.com/SamsTheNerd/HexGloop).
+* When you're confident that your book is set up properly and publishing is working, remove `.dev0` from your plugin version (`doc/src/hexdoc_yourmodid/__version__.py`).
 
 ## Migrating from Cookiecutter
 
