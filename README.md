@@ -48,10 +48,11 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 
 * Read through the files added by the template - make sure you know what you just added to your repo!
 * If you use VSCode, consider installing the recommended extensions for auto-formatting, linting, and type checking.
-* For hexdoc examples, take a look at these projects:
-  * [hexdoc-hexcasting](https://github.com/object-Object/HexMod)
-  * [hexdoc-hexgloop](https://github.com/SamsTheNerd/HexGloop).
 * When you're confident that your book is set up properly and publishing is working, remove `.dev0` from your plugin version (`doc/src/hexdoc_yourmodid/__version__.py`).
+* For more hexdoc examples, take a look at these projects:
+  * [hexdoc](https://github.com/hexdoc-dev/hexdoc)
+  * [hexdoc-hexcasting](https://github.com/object-Object/HexMod)
+  * [hexdoc-hexgloop](https://github.com/SamsTheNerd/HexGloop)
 
 ## Migrating from Cookiecutter
 
