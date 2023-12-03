@@ -17,7 +17,7 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
 * Run these commands to create an empty branch for GitHub Pages:
   ```sh
   git switch --orphan gh-pages
-  git commit --allow-empty "Initial commit"
+  git commit --allow-empty -m "Initial commit"
   git push -u origin gh-pages
   ```
 * Go to your GitHub repo settings > Pages > Build and deployment.
