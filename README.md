@@ -58,5 +58,6 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 
 ### Why should I publish my plugin to PyPI?
 
-* It allows other hexdoc plugins to use content from your mod ([hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two examples of hexdoc plugins that your web book already depends on).
+* It allows other hexdoc plugins to use content from your mod.
+  * [hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two hexdoc plugins that your web book already depends on.
 * Publishing to PyPI is **mandatory** if you want your mod to be supported by [HexBug](https://github.com/object-Object/HexBug), [hexdoc-lsp](https://github.com/hexdoc-dev/hexdoc-lsp), and/or [vscode-hex-casting](https://github.com/object-Object/vscode-hex-casting).
