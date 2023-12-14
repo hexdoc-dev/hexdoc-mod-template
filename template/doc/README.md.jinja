@@ -15,6 +15,8 @@ For example:
 
 ## Setup
 
+Install Python 3.11 and Node 18 (20+ is **not** currently supported).
+
 ```sh
 python3.11 -m venv venv
 

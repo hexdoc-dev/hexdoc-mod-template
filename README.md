@@ -5,6 +5,7 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
 
 ### Copying the template
 
+* Install Python 3.11.
 * Install Copier: `pip install pipx && pipx install copier`
 * In your repo, copy the template: `copier copy gh:hexdoc-dev/hexdoc-hexcasting-template . --overwrite`
 * Use your editor's Git diff tool to review any files overwritten by the template (eg. `.gitignore`).
