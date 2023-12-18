@@ -1,4 +1,4 @@
-# hexdoc-hexcasting-template
+# hexdoc-mod-template
 
 <a href="https://github.com/hexdoc-dev/hexdoc"><img src="https://img.shields.io/endpoint?url=https://hexxy.media/api/v0/badge/hexdoc" alt="hexdoc" style="max-width:100%;"></a>
 
@@ -62,5 +62,4 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 
 ### Why should I publish my plugin to PyPI?
 
-The main reason is to allow other hexdoc plugins to use content from your mod. [hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two hexdoc plugins that your web book already depends on.
-
+The main reason is to allow other hexdoc plugins to use content from your mod. [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) is a hexdoc plugin that your web book already depends on.
