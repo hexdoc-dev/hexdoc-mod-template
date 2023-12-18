@@ -1,12 +1,10 @@
 # Copier settings (not prompted)
 
 _subdirectory: template
-_answers_file: .copier-answers.hexdoc-hexcasting.yml
-
+_answers_file: .copier-answers.hexdoc-mod.yml
 _skip_if_exists:
   - ".env"
   - "icon.png"
-
 _exclude:
   # for copier-template-tester
   - ".ctt"
@@ -26,77 +24,80 @@ _exclude:
 modid:
   type: str
 
-mod_display_name: "{{ modid|capitalize }}"
+mod_display_name:
+  type: str
+  default: "{{ modid|capitalize }}"
 
-book_id: "hexcasting:thehexbook"
+book_id:
+  type: str
+  default: "{{ modid }}:{{ modid }}book"
 
 # hexdoc plugin
 
-package_name: "hexdoc-{{ modid|replace('_', '-')|lower }}"
+plugin_root:
+  type: str
+  default: doc
 
-package_slug: "hexdoc_{{ modid|replace('-', '_')|lower }}"
+plugin_name:
+  type: str
+  default: "hexdoc-{{ modid|replace('_', '-')|lower }}"
 
-package_src: "doc/src/{{ package_slug }}"
+plugin_slug:
+  type: str
+  default: "{{ plugin_name|replace('-', '_') }}"
 
-package_export_root: "{{ package_src }}/_export"
+plugin_pluggy_classname:
+  type: str
+  default: "{{ modid|capitalize }}Plugin"
 
-hexdoc_plugin_classname: "{{ modid|capitalize }}Plugin"
-
-hexdoc_mod_plugin_classname: "{{ modid|capitalize }}ModPlugin"
+plugin_ModPlugin_classname:
+  type: str
+  default: "{{ plugin_pluggy_classname|replace('Plugin', 'ModPlugin') }}"
 
 # mod structure
+
+gradle_mod_version_key:
+  type: str
+  default: modVersion
 
 multiloader:
   type: bool
   default: true
 
-gradle_mod_version_key: "modVersion"
+common_dir:
+  type: str
+  when: "{{ multiloader }}"
+  default: Common
 
-java_lang:
-  type: yaml
-  choices:
-    Java:
-      value: &java_lang_default
-        src: java
-        ext: java
-    Kotlin:
-      value:
-        src: kotlin
-        ext: kt
-  default: *java_lang_default
+fabric_dir:
+  type: str
+  when: "{{ multiloader }}"
+  default: Fabric
 
-java_package: "com/example/{{ modid }}"
-
-pattern_registry: "registry/{{ modid|capitalize }}PatternRegistry.{{ java_lang.ext }}"
-
-pattern_regex:
-  type: yaml
-  choices:
-    Hex Casting (1.20):
-      value: &pattern_regex_default
-        regex: 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*(?:new )?(?:ActionRegistryEntry|OperationAction)\(\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
-        per_world_value: "true"
-    Hex Casting (1.19):
-      value:
-        regex: 'HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\)[^;]+?(?:makeConstantOp|Op\w+|Widget\.\w+)(?:[^;]*(?P<is_per_world>true)\);)?'
-        per_world_value: "true"
-    Hexal (1.20):
-      value:
-        regex: 'make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)'
-        per_world_value: "true"
-    Hexal (1.19):
-      value:
-        regex: (?s-m:HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\),[^,]+?(?:makeConstantOp|Op\w+).*?(?P<is_per_world>\btrue)?\)(?:[^\)]+?\bval\b|(?:(?!\bval\b)(?:.))+$))
-        per_world_value: "true"
-  default: *pattern_regex_default
+forge_dir:
+  type: str
+  when: "{{ multiloader }}"
+  default: Forge
 
 # GitHub
 
-github_repo: "{{ modid|capitalize }}"
+github_repo:
+  type: str
+  default: "{{ modid|capitalize }}"
 
 author:
   type: str
 
-default_branch: main
+default_branch:
+  type: str
+  default: main
 
-pages_url: "https://{{ author|lower }}.github.io/{{ github_repo }}/"
+base_book_url:
+  type: str
+  default: "https://{{ author|lower }}.github.io/{{ github_repo }}/"
+
+# computed values
+
+plugin_root_with_slash:
+  when: false
+  default: "{{ plugin_root|trim('/')~'/' if plugin_root }}"

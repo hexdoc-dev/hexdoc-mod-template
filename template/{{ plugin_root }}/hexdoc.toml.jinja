@@ -1,0 +1,47 @@
+modid = "{{ modid }}"
+book = "{{ book_id }}"
+default_lang = "en_us"
+default_branch = "{{ default_branch }}"
+
+resource_dirs = [  # top takes priority
+    # hexdoc-only resources
+    "resources",
+    # resource dirs for {{ mod_display_name }}
+    "{_common.src}/main/resources",
+    { path="{^_common.src}/generated/resources", required=false },
+    {%- if multiloader %}
+    "{_fabric.src}/main/resources",
+    { path="{^_fabric.src}/generated/resources", required=false },
+    "{_forge.src}/main/resources",
+    { path="{^_forge.src}/generated/resources", required=false },
+    {%- endif %}
+    # other hexdoc plugins
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+export_dir = "src/{{ plugin_slug }}/_export/generated"
+
+[template]
+icon = "icon.png"
+include = [
+    "{{ modid }}",
+    "hexdoc",
+]
+
+[template.args]
+mod_name = "{{ mod_display_name }}"
+author = "{{ author }}"
+show_landing_text = true
+
+# platforms
+
+[_common]
+src = "../{{ common_dir~'/' if multiloader }}src"
+{%- if multiloader %}
+
+[_fabric]
+src = "../{{ fabric_dir }}/src"
+
+[_forge]
+src = "../{{ forge_dir }}/src"
+{%- endif %}

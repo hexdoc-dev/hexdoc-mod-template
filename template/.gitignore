@@ -1,37 +1,8 @@
 # hexdoc
-_site/
-_checkout/
+
+/_site/
 __gradle_version__.py
 .hexdoc*/
-
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
-
-# idea
-out
-*.ipr
-*.iws
-*.iml
-.idea
-
-# gradle
-build
-.gradle
-
-# other
-eclipse
-run
-
-# Files from Forge MDK
-forge*changelog.txt
-
-Session.vim
-plot/
 
 # Python
 

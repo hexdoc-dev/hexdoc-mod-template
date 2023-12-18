@@ -4,6 +4,5 @@
 		"ms-python.vscode-pylance",
 		"charliermarsh.ruff",
 		"samuelcolvin.jinjahtml",
-		"noxiz.jinja-snippets",
 	],
 }

@@ -1,8 +1,6 @@
 [defaults]
-modid = "mod"
-multiloader = false
-java_package = "com/package"
-pattern_registry = "Patterns.java"
-author = "Author"
+modid = "modid"
+multiloader = true
+author = "author"
 
-[output.".ctt/test_copier"]
+[output.".ctt/defaults"]

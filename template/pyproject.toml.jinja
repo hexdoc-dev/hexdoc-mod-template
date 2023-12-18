@@ -5,34 +5,26 @@ requires = [
 ]
 build-backend = "hatchling.build"
 
-# project metadata
-
 [project]
-name = "{{ package_name }}"
-description = "Python web book docgen and hexdoc plugin for {{ mod_display_name }}."
-readme = "doc/README.md"
+name = "{{ plugin_name }}"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+description = "hexdoc plugin for {{ mod_display_name }}'s web book."
+readme = "{{ plugin_root }}/README.md"
 authors = [
     { name="{{ author }}" },
 ]
-keywords = ["hexdoc"]
+keywords = [
+    "hexdoc",
+]
 requires-python = ">=3.11"
-dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "{{ pages_url }}"
+Homepage = "{{ base_book_url }}"
 Source = "https://github.com/{{ author }}/{{ github_repo }}"
-
-# Gradle version/deps
-
-[tool.hatch.version]
-scheme = "gradle"
-source = "gradle-properties"
-py-path = "{{ package_src }}/__version__.py"
-key = "{{ gradle_mod_version_key }}"
 
 [tool.hatch.metadata.hooks.gradle-properties]
 dependencies = [
-    { package="hexdoc-hexcasting", op="~=", py-version="1.0.dev20", key="hexcastingVersion" },
+    "hexdoc~=1!0.1.0a6",
 ]
 
 [tool.hatch.metadata.hooks.gradle-properties.optional-dependencies]
@@ -40,34 +32,34 @@ dev = [
     "ruff~=0.1.4",
 ]
 
-# directory inclusion
+[tool.hatch.version]
+scheme = "gradle"
+source = "gradle-properties"
+py-path = "{{ plugin_root_with_slash }}src/{{ plugin_slug }}/__version__.py"
+key = "{{ gradle_mod_version_key }}"
+
+[project.entry-points.hexdoc]
+{{ modid }} = "{{ plugin_slug }}._hooks:{{ plugin_classname }}"
 
 [tool.hatch.build]
 only-include = [
-    "{{ package_src }}",
+    "{{ plugin_root_with_slash }}src",
     "gradle.properties",
 ]
 artifacts = [
-    "/{{ package_export_root }}/generated",
-    "/{{ package_src }}/__gradle_version__.py",
+    "/{{ plugin_root_with_slash }}src/{{ plugin_slug }}/_export/generated",
+    "/{{ plugin_root_with_slash }}src/{{ plugin_slug }}/__gradle_version__.py",
 ]
 
 [tool.hatch.build.targets.wheel]
-sources = ["doc/src"]
-
-# hexdoc entry points
-
-[project.entry-points.hexdoc]
-{{ modid }} = "{{ package_slug }}._hooks:{{ hexdoc_plugin_classname }}"
-
-# linting
+sources = ["{{ plugin_root_with_slash }}src"]
 
 [tool.pyright]
 pythonVersion = "3.11"
 pythonPlatform = "All"
 
-include = ["doc/src"]
-extraPaths = ["doc/src"]
+include = ["{{ plugin_root_with_slash }}src"]
+extraPaths = ["{{ plugin_root_with_slash }}src"]
 
 typeCheckingMode = "basic"
 

@@ -1,0 +1,12 @@
+{
+    "watch": [
+        "{{ plugin_root_with_slash }}src",
+        "{{ plugin_root_with_slash }}resources",
+        "{{ plugin_root_with_slash }}hexdoc.toml",
+        "{{ common_dir~'/' if multiloader }}src/main/resources/assets/*/lang",
+        "{{ common_dir~'/' if multiloader }}src/main/resources/assets/{{ modid }}/patchouli_books"
+    ],
+    "ignore": ["**/generated/**"],
+    "ext": "jinja,html,css,js,ts,toml,json,json5,py",
+    "exec": "hexdoc serve"
+}

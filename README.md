@@ -1,18 +1,22 @@
 # hexdoc-hexcasting-template
-Copier template for adding a hexdoc plugin to a Hex Casting addon.
+
+<a href="https://github.com/hexdoc-dev/hexdoc"><img src="https://img.shields.io/endpoint?url=https://hexxy.media/api/v0/badge/hexdoc" alt="hexdoc" style="max-width:100%;"></a>
+
+Copier template for adding a [hexdoc](https://pypi.org/project/hexdoc) plugin to a standalone mod. 
 
 ## Setting up a new plugin for an existing mod
 
 ### Copying the template
 
 * Install Python 3.11.
-* Install Copier: `pip install pipx && pipx install copier`
-* In your repo, copy the template: `copier copy gh:hexdoc-dev/hexdoc-hexcasting-template . --overwrite`
+* Follow [these instructions](https://pypa.github.io/pipx/#install-pipx) to install pipx (like npx for Python).
+* Install Copier: `pipx install copier`
+* In the root of your mod's repo, copy the template: `copier copy gh:hexdoc-dev/hexdoc-mod-template . --overwrite`
 * Use your editor's Git diff tool to review any files overwritten by the template (eg. `.gitignore`).
   * All of the files in the template are there for good reasons, but you might want to merge some of your existing content into them.
-  * Make sure `.vscode` is not in your `.gitignore`.
+  * If you want to use the recommended VSCode settings, make sure `.vscode` is not in your `.gitignore`.
 * Commit the plugin.
-* Follow the setup steps in `doc/README.md`, then try running the commands. Fix any errors you find.
+* Follow the setup steps in `doc/README.md` (or whatever folder you entered for `plugin_root`), then try running the commands. Fix any errors you find.
   * Make sure to double-check the file paths and pattern regex in `doc/hexdoc.toml`.
 
 ### Setting up Pages
@@ -24,12 +28,11 @@ Copier template for adding a hexdoc plugin to a Hex Casting addon.
   git push -u origin gh-pages
   ```
 * Go to your GitHub repo settings > Pages > Build and deployment.
-* Set these values:
+* Set these values, then save your changes:
   * Source: `Deploy from a branch`
   * Branch: `gh-pages`
   * Folder: `/docs`
-* Save your changes.
-* Push the commits that added your plugin, monitor the Actions tab, and cross your fingers!
+* Push, monitor the Actions tab, and cross your fingers!
 
 ### Setting up a PyPI account (optional, but highly recommended)
 
@@ -37,7 +40,7 @@ PyPI is the main Python package repository (like Node's NPM). hexdoc plugins are
 
 * [Create a PyPI account](https://pypi.org/account/register/).
 * Follow [these steps](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/) to configure a pending publisher for your plugin.
-  * PyPI Project Name: The `name` value from your pyproject.toml (ie. `hexdoc-yourmodid`).
+  * PyPI Project Name: The `name` value from your pyproject.toml (eg. `hexdoc-yourmodid`).
   * Workflow name: `build_docs.yml`
   * Environment name: `pypi`
 * Go to your GitHub repo settings > Environments, and create an environment called `pypi`.
@@ -59,6 +62,5 @@ The default version number for your plugin is `1.0.dev0`. You can bump this by e
 
 ### Why should I publish my plugin to PyPI?
 
-* It allows other hexdoc plugins to use content from your mod.
-  * [hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two hexdoc plugins that your web book already depends on.
-* Publishing to PyPI is **mandatory** if you want your mod to be supported by [HexBug](https://github.com/object-Object/HexBug), [hexdoc-lsp](https://github.com/hexdoc-dev/hexdoc-lsp), and/or [vscode-hex-casting](https://github.com/object-Object/vscode-hex-casting).
+The main reason is to allow other hexdoc plugins to use content from your mod. [hexdoc-hexcasting](https://pypi.org/project/hexdoc-hexcasting/) and [hexdoc-minecraft](https://pypi.org/project/hexdoc-minecraft/) are two hexdoc plugins that your web book already depends on.
+
