@@ -60,6 +60,10 @@ gradle_mod_version_key:
   type: str
   default: modVersion
 
+gradle_minecraft_version_key:
+  type: str
+  default: minecraftVersion
+
 multiloader:
   type: bool
   default: true
