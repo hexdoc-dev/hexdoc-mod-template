@@ -40,7 +40,7 @@ py-path = "{{ plugin_root_with_slash }}src/{{ plugin_slug }}/__version__.py"
 key = "{{ gradle_mod_version_key }}"
 
 [project.entry-points.hexdoc]
-{{ modid }} = "{{ plugin_slug }}._hooks:{{ plugin_classname }}"
+{{ modid }} = "{{ plugin_slug }}._hooks:{{ plugin_pluggy_classname }}"
 
 [tool.hatch.build]
 only-include = [
