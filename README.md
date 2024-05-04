@@ -19,20 +19,9 @@ Copier template for adding a [hexdoc](https://pypi.org/project/hexdoc) plugin to
 * Follow the setup steps in `doc/README.md` (or whatever folder you entered for `plugin_root`), then try running the commands. Fix any errors you find.
   * Make sure to double-check the file paths and pattern regex in `doc/hexdoc.toml`.
 
-### Setting up Pages
+### Setting up GitHub Pages
 
-* Run these commands to create an empty branch for GitHub Pages:
-  ```sh
-  git switch --orphan gh-pages
-  git commit --allow-empty -m "Initial commit"
-  git push -u origin gh-pages
-  ```
-* Go to your GitHub repo settings > Pages > Build and deployment.
-* Set these values, then save your changes:
-  * Source: `Deploy from a branch`
-  * Branch: `gh-pages`
-  * Folder: `/docs`
-* Push, monitor the Actions tab, and cross your fingers!
+Follow these steps to set up GitHub Pages: https://hexdoc.hexxy.media/docs/guides/deployment/github-pages
 
 ### Setting up a PyPI account (optional, but highly recommended)
 
