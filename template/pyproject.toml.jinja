@@ -24,7 +24,7 @@ Source = "https://github.com/{{ author }}/{{ github_repo }}"
 
 [tool.hatch.metadata.hooks.gradle-properties]
 dependencies = [
-    "hexdoc~=1!0.1.0a6",
+    "hexdoc~={{ hexdoc_version }}",
     { package="hexdoc-minecraft", op="~=", py-version="1.0.dev", key="{{ gradle_minecraft_version_key }}" },
 ]
 

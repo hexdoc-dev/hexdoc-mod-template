@@ -1,0 +1,9 @@
+{
+    "watch": [
+        "template",
+        "copier.yml",
+        "ctt.toml"
+    ],
+    "ext": "*",
+    "exec": "ctt"
+}

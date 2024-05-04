@@ -19,6 +19,13 @@ _exclude:
   - ".DS_Store"
   - ".svn"
 
+# hide values that are relatively easy to autogenerate
+
+advanced:
+  type: bool
+  default: false
+  help: Show advanced configuration questions?
+
 # mod name and id
 
 modid:
@@ -31,26 +38,37 @@ mod_display_name:
 book_id:
   type: str
   default: "{{ modid }}:{{ modid }}book"
+  help: Your Patchouli book id (eg. for Botania, this is botania:lexicon)
 
 # hexdoc plugin
 
 plugin_root:
+  when: "{{ advanced }}"
   type: str
   default: doc
 
+plugin_root_with_slash:
+  when: false
+  default: "{{ plugin_root|trim('/')~'/' if plugin_root }}"
+
 plugin_name:
+  when: "{{ advanced }}"
   type: str
   default: "hexdoc-{{ modid|replace('_', '-')|lower }}"
 
 plugin_slug:
+  when: "{{ advanced }}"
   type: str
   default: "{{ plugin_name|replace('-', '_') }}"
+  help: "Directory name under {{ plugin_root_with_slash }}src/ to put plugin code in (eg. entering {{ plugin_name|replace('-', '_') }} will create {{ plugin_root_with_slash }}src/{{ plugin_name|replace('-', '_') }})"
 
 plugin_pluggy_classname:
+  when: "{{ advanced }}"
   type: str
   default: "{{ modid|capitalize }}Plugin"
 
 plugin_ModPlugin_classname:
+  when: "{{ advanced }}"
   type: str
   default: "{{ plugin_pluggy_classname|replace('Plugin', 'ModPlugin') }}"
 
@@ -59,29 +77,37 @@ plugin_ModPlugin_classname:
 gradle_mod_version_key:
   type: str
   default: modVersion
+  help: Key name in gradle.properties where the mod version is stored
 
 gradle_minecraft_version_key:
   type: str
   default: minecraftVersion
+  help: Key name in gradle.properties where the Minecraft version is stored
 
 multiloader:
   type: bool
   default: true
+  help: Does your mod use a multiloader structure?
+
+capitalize_platforms:
+  type: bool
+  default: false
+  help: Are the platform directories capitalized (eg. Common/ vs common/)?
 
 common_dir:
+  when: false
   type: str
-  when: "{{ multiloader }}"
-  default: Common
+  default: "{{ 'C' if capitalize_platforms else 'c' }}ommon"
 
 fabric_dir:
+  when: false
   type: str
-  when: "{{ multiloader }}"
-  default: Fabric
+  default: "{{ 'F' if capitalize_platforms else 'f' }}abric"
 
 forge_dir:
+  when: false
   type: str
-  when: "{{ multiloader }}"
-  default: Forge
+  default: "{{ 'F' if capitalize_platforms else 'f' }}orge"
 
 # GitHub
 
@@ -91,17 +117,26 @@ github_repo:
 
 author:
   type: str
+  help: GitHub author username.
 
 default_branch:
+  when: "{{ advanced }}"
   type: str
   default: main
 
 base_book_url:
+  when: "{{ advanced }}"
   type: str
   default: "https://{{ author|lower }}.github.io/{{ github_repo }}/"
 
-# computed values
+# file inclusion
 
-plugin_root_with_slash:
-  when: false
-  default: "{{ plugin_root|trim('/')~'/' if plugin_root }}"
+add_gitignore:
+  type: bool
+  default: true
+  help: Generate .gitignore for Python and hexdoc?
+
+add_vscode:
+  type: bool
+  default: true
+  help: Generate VSCode settings?
